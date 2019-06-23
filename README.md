@@ -19,10 +19,10 @@ It is not required to be configured. When the api is called, the corresponding n
 
 ```
 <root>
-	<rootUrl>http://apis.baidu.com</rootUrl>
+	<rootUrl>http://preview.airwallex.com:30001</rootUrl>
 	<headers>
 		<!-- xxxx -->
-		<header name="apikey" value="123456"></header>
+		<header name="test" value="test"></header>
 	</headers>
 	<params>
 		<param name="param1" value="value1"></param>
