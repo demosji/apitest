@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+    <rootUrl>http://apis.baidu.com</rootUrl>
+    <headers>
+        <!-- 配置为自己的参数 -->
+        <header name="apikey" value="123456"></header>
+    </headers>
+    <params>
+    	<param name="test" value="value"></param>
+    </params>
+    <project_name>api test framework</project_name>
+</root>
