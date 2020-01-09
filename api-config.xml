@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+    <rootUrl>http://preview.airwallex.com:30001</rootUrl>
+    <headers>
+        <!-- 配置为自己的参数 -->
+        <header name="test" value="value"></header>
+    </headers>
+    <params>
+    	<param name="test" value="value"></param>
+    </params>
+    <project_name>api test framework</project_name>
+</root>
