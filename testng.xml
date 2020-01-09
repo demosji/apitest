@@ -3,16 +3,18 @@
 	<test name="自动化测试用例">
 		<parameter name="excelPath" value="case/api-data.xls"></parameter>
 		<parameter name="sheetName" value="Sheet1"></parameter>
-	<classes>
-		<class name="com.suiyang.apitest.ApiTest">
-			<methods>
-				<include name="apiTest"></include>
-			</methods>
-		</class>
-	</classes>
-</test>
-<listeners>
-<listener class-name="com.suiyang.apitest.listeners.AutoTestListener"></listener>
+
+		<classes>
+			<class name="com.suiyang.apitest.ApiTest">
+				<methods>							
+					<include name="apiTest"></include>
+				</methods>
+			</class>	
+		</classes>
+	</test>
+	<listeners>	
+		<listener class-name="com.suiyang.apitest.listeners.AutoTestListener"></listener>
+
 		<listener class-name="com.suiyang.apitest.listeners.RetryListener"></listener>
 		<!-- ReportNg 报告  -->	
 		<!--  
