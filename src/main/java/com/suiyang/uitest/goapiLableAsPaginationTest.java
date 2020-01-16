@@ -48,21 +48,32 @@ public class goapiLableAsPaginationTest {
         WebElement loginBtn = webDriver.findElement(By.xpath("//*[@id=\"corp\"]/form/div[4]/button"));
         //todo 改成配置文件读取方式
         username.sendKeys("jisuiyang");
-        password.sendKeys("Loveme0911!");
+        password.sendKeys("");
         loginBtn.submit();
 
         /**step2.点击页面中需要打标签的域一级路径*/
-       // webDriver.findElement(By.xpath("/html/body/div[1]/div[2]/div[2]/div[2]/div/div[1]/div[3]/div/div/ul[12]/li/div/div[1]/span[2]")).click(); //客服
-        webDriver.findElement(By.xpath("/html/body/div[1]/div[2]/div[2]/div[2]/div/div[1]/div[3]/div/div/ul[6]/li/div/div[1]/span[2]")).click(); //售后
+        webDriver.findElement(By.xpath("/html/body/div[1]/div[2]/div[2]/div[2]/div/div[1]/div[3]/div/div/ul[12]/li/div/div[1]/span[2]")).click(); //客服
+       // webDriver.findElement(By.xpath("/html/body/div[1]/div[2]/div[2]/div[2]/div/div[1]/div[3]/div/div/ul[6]/li/div/div[1]/span[2]")).click(); //售后
 
         /**step3.用例分页处理*/
-        int pageNum = 8; //需根据实际情况人工设定
+        int pageNum = 12; //需根据实际情况人工设定
         for (int i = 1; i <= pageNum; i++) {
             System.out.println("当前正在执行第"+i+"页");
+            try {
+                webDriver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
             List<WebElement> apiItemsList = webDriver.findElements(By.xpath("//*[@id='case-index-wrap']//*[@class='ivu-table-cell']//*[@class='action-btn-group']/span[contains(text(),'编辑')]"));
             if (apiItemsList.size() > 0) {
                 //遍历每个分类下的接口编辑按钮
                 for (int j = 0; j < apiItemsList.size(); j++) {
+                    System.out.println("正在执行该页的第"+(j+1)+"个接口");
+                    try {
+                        webDriver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
                     List<WebElement> apiItemsListNew = webDriver.findElements(By.xpath("//*[@id='case-index-wrap']//*[@class='ivu-table-cell']//*[@class='action-btn-group']/span[contains(text(),'编辑')]"));
                     ((JavascriptExecutor) webDriver).executeScript("arguments[0].scrollIntoView();", apiItemsListNew.get(j));
                     apiItemsListNew.get(j).click();
@@ -70,7 +81,7 @@ public class goapiLableAsPaginationTest {
                     for (WebElement wet : testCaseTagList) {
                         wet.click();
                         try {
-                            webDriver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
+                            webDriver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
                         } catch (Exception e) {
                             e.printStackTrace();
                         }
